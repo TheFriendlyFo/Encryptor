@@ -6,7 +6,7 @@ public class Encryptor {
         String[][] block = new String[rows][cols];
 
         for (int letter = 0; letter < original.length(); letter++) {
-            int row = (letter - encrypted.length()) / rows;
+            int row = (letter - encrypted.length()) / cols;
             int col = (letter - encrypted.length()) % cols;
 
             block[row][col] = String.valueOf(original.charAt(letter));
@@ -25,7 +25,7 @@ public class Encryptor {
 
         for (int col = 0; col < block[0].length; col++) {
             for (String[] strings : block) {
-                blockVal.append(strings[col] == null ? "-" : strings[col]);
+                blockVal.append(strings[col] == null ? " " : strings[col]);
             }
         }
 
