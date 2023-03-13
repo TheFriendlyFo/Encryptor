@@ -17,7 +17,7 @@ public class Encryptor {
             }
         }
 
-        return encrypted.toString();
+        return encrypted.toString().stripTrailing();
     }
 
     private static String blockToString(String[][] block) {
