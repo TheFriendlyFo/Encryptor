@@ -1,6 +1,10 @@
 public class Encryptor {
     private Encryptor(){}
 
+    public static String decrypt(String original, int cols, int rows) {
+        return encrypt(original, rows, cols).stripTrailing();
+    }
+
     public static String encrypt(String original, int rows, int cols) {
         StringBuilder encrypted = new StringBuilder();
         String[][] block = new String[rows][cols];
@@ -17,7 +21,7 @@ public class Encryptor {
             }
         }
 
-        return encrypted.toString().stripTrailing();
+        return encrypted.toString();
     }
 
     private static String blockToString(String[][] block) {
@@ -25,7 +29,7 @@ public class Encryptor {
 
         for (int col = 0; col < block[0].length; col++) {
             for (String[] strings : block) {
-                blockVal.append(strings[col] == null ? " " : strings[col]);
+                blockVal.append(strings[col] == null ? "A" : strings[col]);
             }
         }
 
